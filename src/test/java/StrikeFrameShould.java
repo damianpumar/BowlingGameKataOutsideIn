@@ -18,15 +18,15 @@ public class StrikeFrameShould {
     }
 
     @Test
-    public void return_15_when_the_next_two_pins_are_5_and_0() {
-        StrikeFrame strikeFrame = new StrikeFrame(new Pin("5"), new Pin("0"));
+    public void return_15_when_the_next_two_pins_are_5_and_miss() {
+        StrikeFrame strikeFrame = new StrikeFrame(new Pin("5"), new Pin("-"));
 
         assertThat(strikeFrame.score()).isEqualTo(15);
     }
 
     @Test
-    public void return_13_when_the_next_two_pins_are_0_and_3() {
-        StrikeFrame strikeFrame = new StrikeFrame(new Pin("0"), new Pin("3"));
+    public void return_13_when_the_next_two_pins_are_miss_and_3() {
+        StrikeFrame strikeFrame = new StrikeFrame(new Pin("-"), new Pin("3"));
 
         assertThat(strikeFrame.score()).isEqualTo(13);
     }
