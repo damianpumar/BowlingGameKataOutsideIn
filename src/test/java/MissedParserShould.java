@@ -37,7 +37,7 @@ public class MissedParserShould {
     }
 
     @Test
-    public void score_is_8_when_missed_frame_is_right() {
+    public void score_is_9_when_missed_frame_is_right() {
         String[] rolls = new String[]{"9-", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X",};
 
         MissedParser missedParser = new MissedParser(rolls);
@@ -45,5 +45,16 @@ public class MissedParserShould {
         Frame frame = missedParser.evaluate(0);
 
         assertThat(frame.score()).isEqualTo(9);
+    }
+
+    @Test
+    public void score_is_7_when_missed_frame_is_right() {
+        String[] rolls = new String[]{"-7", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X",};
+
+        MissedParser missedParser = new MissedParser(rolls);
+
+        Frame frame = missedParser.evaluate(0);
+
+        assertThat(frame.score()).isEqualTo(7);
     }
 }
