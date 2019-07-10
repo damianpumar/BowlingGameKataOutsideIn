@@ -24,4 +24,37 @@ public class StrikeParserShould {
 
         assertThat(frame.score()).isEqualTo(20);
     }
+
+    @Test
+    public void score_is_13_when_strike_frame_is_compose_with_miss_and_3() {
+        String[] rolls = new String[]{"X", "-3", "X", "X", "X", "X", "X", "X", "X", "X", "X",};
+
+        StrikeParser strikeParser = new StrikeParser(rolls);
+
+        Frame frame = strikeParser.evaluate(0);
+
+        assertThat(frame.score()).isEqualTo(13);
+    }
+
+    @Test
+    public void score_is_15_when_strike_frame_is_compose_with_5_and_miss() {
+        String[] rolls = new String[]{"X", "5-", "X", "X", "X", "X", "X", "X", "X", "X", "X",};
+
+        StrikeParser strikeParser = new StrikeParser(rolls);
+
+        Frame frame = strikeParser.evaluate(0);
+
+        assertThat(frame.score()).isEqualTo(15);
+    }
+
+    @Test
+    public void score_is_17_when_strike_frame_is_compose_with_5_and_2() {
+        String[] rolls = new String[]{"X", "52", "X", "X", "X", "X", "X", "X", "X", "X", "X",};
+
+        StrikeParser strikeParser = new StrikeParser(rolls);
+
+        Frame frame = strikeParser.evaluate(0);
+
+        assertThat(frame.score()).isEqualTo(17);
+    }
 }
