@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Bowling {
     private LineParser lineParser;
 
@@ -6,8 +8,14 @@ public class Bowling {
     }
 
     public int score(String rolls) {
-        this.lineParser.parse(rolls);
+        int score = 0;
 
-        return 0;
+        List<FrameParser> parsers = this.lineParser.parse(rolls);
+
+        for (FrameParser parser : parsers) {
+            score += parser.score();
+        }
+
+        return score;
     }
 }
