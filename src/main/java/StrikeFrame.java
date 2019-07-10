@@ -1,4 +1,5 @@
 public class StrikeFrame extends Frame {
+    private static final int MAX_VALUE = 30;
     private Pin[] pins;
 
     public StrikeFrame(Pin... pins) {
@@ -8,7 +9,7 @@ public class StrikeFrame extends Frame {
     @Override
     public int score() {
         if (this.pins[0].isStrike() && this.pins[1].isStrike())
-            return this.pins[0].score() * 3;
+            return MAX_VALUE;
 
         return 0;
     }

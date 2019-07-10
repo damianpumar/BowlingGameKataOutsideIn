@@ -10,8 +10,4 @@ public class Pin {
     public boolean isStrike() {
         return this.value.equals(STRIKE);
     }
-
-    public int score() {
-        throw new UnsupportedOperationException();
-    }
 }
