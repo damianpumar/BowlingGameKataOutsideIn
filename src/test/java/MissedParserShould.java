@@ -57,4 +57,15 @@ public class MissedParserShould {
 
         assertThat(frame.score()).isEqualTo(7);
     }
+
+    @Test
+    public void score_is_0_when_missed_frame_in_two_pins() {
+        String[] rolls = new String[]{"--", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X",};
+
+        MissedParser missedParser = new MissedParser(rolls);
+
+        Frame frame = missedParser.evaluate(0);
+
+        assertThat(frame.score()).isEqualTo(0);
+    }
 }
