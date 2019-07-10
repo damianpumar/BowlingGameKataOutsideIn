@@ -5,11 +5,11 @@ public class SpareParser extends FrameParser {
 
     @Override
     protected boolean isMatch(String currentFrame) {
-        return false;
+        return currentFrame.contains(Pin.SPARE);
     }
 
     @Override
     protected Frame createFrame(String[] rollsParsed, String currentFrame, int positionToAnalyze) {
-        return null;
+        return new SpareFrame();
     }
 }
