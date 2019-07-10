@@ -16,4 +16,11 @@ public class SpareFrameShould {
 
         assertThat(spareFrame.score()).isEqualTo(10);
     }
+
+    @Test
+    public void return_20_when_the_next_pin_is_strike() {
+        SpareFrame spareFrame = new SpareFrame(new Pin("X"));
+
+        assertThat(spareFrame.score()).isEqualTo(20);
+    }
 }
