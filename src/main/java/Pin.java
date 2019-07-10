@@ -1,4 +1,6 @@
 public class Pin {
+    public static final String STRIKE = "X";
+
     private String value;
 
     public Pin(String value) {
@@ -6,7 +8,7 @@ public class Pin {
     }
 
     public boolean isStrike() {
-        throw new UnsupportedOperationException();
+        return this.value.equals(STRIKE);
     }
 
     public int score() {

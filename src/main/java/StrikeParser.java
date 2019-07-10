@@ -1,13 +1,11 @@
 public class StrikeParser extends FrameParser {
-    private static final String STRIKE = "X";
-
     public StrikeParser(String[] rollsParsed) {
         super(rollsParsed);
     }
 
     @Override
     protected boolean isMatch(String currentFrame) {
-        return currentFrame.equals(STRIKE);
+        return currentFrame.equals(Pin.STRIKE);
     }
 
     @Override
