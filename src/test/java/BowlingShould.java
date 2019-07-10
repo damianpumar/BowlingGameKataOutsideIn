@@ -7,6 +7,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -49,5 +50,26 @@ public class BowlingShould {
         for (FrameParser parser : parsers) {
             verify(parser, times(1)).score();
         }
+    }
+
+    @Test
+    public void scores_is_the_sum_of_all_score_frames() {
+        String rolls = "X|X|X|X|X|X|X|X|X|X||XX";
+
+        List<FrameParser> parsers = new ArrayList();
+
+        for (int i = 0; i < 10; i++) {
+            FrameParser parser = mock(FrameParser.class);
+
+            when(parser.score()).thenReturn(30);
+
+            parsers.add(parser);
+        }
+
+        when(this.lineParser.parse(rolls)).thenReturn(parsers);
+
+        int score = bowlingGame.score(rolls);
+
+        assertThat(score).isEqualTo(300);
     }
 }
