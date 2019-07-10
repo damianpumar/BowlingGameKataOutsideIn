@@ -9,4 +9,11 @@ public class StrikeFrameShould {
 
         assertThat(strikeFrame.score()).isEqualTo(30);
     }
+
+    @Test
+    public void return_17_when_the_next_two_pins_are_5_and_2() {
+        StrikeFrame strikeFrame = new StrikeFrame(new Pin("5"), new Pin("2"));
+
+        assertThat(strikeFrame.score()).isEqualTo(17);
+    }
 }
