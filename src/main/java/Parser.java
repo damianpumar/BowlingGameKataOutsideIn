@@ -10,12 +10,18 @@ public class Parser {
 
         this.frameParsers = new ArrayList() {
             {
-                add(new StrikeParser());
+                add(new StrikeParser(rollsParsed));
             }
         };
     }
 
     public Frame evaluate(int positionToAnalyze) {
-        throw new UnsupportedOperationException();
+        Frame frame = null;
+
+        for (FrameParser parser : this.frameParsers) {
+            frame = parser.evaluate(positionToAnalyze);
+        }
+
+        return frame;
     }
 }

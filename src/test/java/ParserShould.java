@@ -11,6 +11,6 @@ public class ParserShould {
 
         Frame frame = parser.evaluate(0);
 
-        assertThat(frame).isInstanceOf(StrikeParser.class);
+        assertThat(frame).isInstanceOf(StrikeFrame.class);
     }
 }
