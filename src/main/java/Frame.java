@@ -1,4 +1,4 @@
-public class FrameParser {
+public class Frame {
     public int score() {
         throw new UnsupportedOperationException();
     }

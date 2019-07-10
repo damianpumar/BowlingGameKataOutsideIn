@@ -35,10 +35,10 @@ public class BowlingShould {
     public void get_score_iterating_each_frame() {
         String rolls = "X|X|X|X|X|X|X|X|X|X||XX";
 
-        List<FrameParser> parsers = new ArrayList();
+        List<Frame> parsers = new ArrayList();
 
         for (int i = 0; i < 10; i++) {
-            FrameParser parser = mock(FrameParser.class);
+            Frame parser = mock(Frame.class);
 
             parsers.add(parser);
         }
@@ -47,7 +47,7 @@ public class BowlingShould {
 
         bowlingGame.score(rolls);
 
-        for (FrameParser parser : parsers) {
+        for (Frame parser : parsers) {
             verify(parser, times(1)).score();
         }
     }
@@ -56,10 +56,10 @@ public class BowlingShould {
     public void scores_is_the_sum_of_all_score_frames() {
         String rolls = "X|X|X|X|X|X|X|X|X|X||XX";
 
-        List<FrameParser> parsers = new ArrayList();
+        List<Frame> parsers = new ArrayList();
 
         for (int i = 0; i < 10; i++) {
-            FrameParser parser = mock(FrameParser.class);
+            Frame parser = mock(Frame.class);
 
             when(parser.score()).thenReturn(30);
 

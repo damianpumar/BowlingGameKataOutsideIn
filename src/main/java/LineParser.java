@@ -1,7 +1,11 @@
 import java.util.List;
 
 public class LineParser {
-    public List<FrameParser> parse(String rolls) {
+    public LineParser(Parsers parsers) {
+        throw new UnsupportedOperationException();
+    }
+
+    public List<Frame> parse(String rolls) {
         throw new UnsupportedOperationException();
     }
 }
