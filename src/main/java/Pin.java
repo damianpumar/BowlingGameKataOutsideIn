@@ -3,6 +3,7 @@ import org.apache.commons.lang3.math.NumberUtils;
 public class Pin {
     public static final String STRIKE = "X";
     private static final String SPARE = "/";
+    private static final String MISSED = "-";
 
     private String value;
 
@@ -24,5 +25,9 @@ public class Pin {
 
     public int number() {
         return Integer.parseInt(this.value);
+    }
+
+    public boolean isMiss() {
+        return this.value.equals(MISSED);
     }
 }
