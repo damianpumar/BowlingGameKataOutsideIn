@@ -11,6 +11,6 @@ public class MissedParser extends FrameParser {
 
     @Override
     protected Frame createFrame(String[] rollsParsed, String currentFrame, int positionToAnalyze) {
-        return new MissedFrame();
+        return new MissedFrame(this.createPin(currentFrame)[0], this.createPin(currentFrame)[1]);
     }
 }
