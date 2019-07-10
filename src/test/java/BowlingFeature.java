@@ -31,4 +31,11 @@ public class BowlingFeature {
 
         assertThat(this.bowling.score(rolls)).isEqualTo(150);
     }
+
+    @Test
+    public void scores_is_167_when_has_random_rolls() {
+        String rolls = "X|7/|9-|X|-8|8/|-6|X|X|X||81";
+
+        assertThat(this.bowling.score(rolls)).isEqualTo(167);
+    }
 }

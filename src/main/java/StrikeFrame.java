@@ -24,6 +24,9 @@ public class StrikeFrame extends Frame {
         if (secondPin().isMiss() && firstPin().isNumber())
             return MIN_VALUE + firstPin().number();
 
+        if (firstPin().isStrike() && secondPin().isNumber())
+            return MIN_VALUE + MIN_VALUE + secondPin().number();
+
         return 0;
     }
 
