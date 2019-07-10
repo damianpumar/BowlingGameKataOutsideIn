@@ -39,8 +39,6 @@ public class BowlingShould {
         for (int i = 0; i < 10; i++) {
             FrameParser parser = mock(FrameParser.class);
 
-            when(parser.score()).thenReturn(30);
-
             parsers.add(parser);
         }
 
