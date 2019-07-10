@@ -1,5 +1,3 @@
-public class Frame {
-    public int score() {
-        throw new UnsupportedOperationException();
-    }
+public abstract class Frame {
+    public abstract int score();
 }
