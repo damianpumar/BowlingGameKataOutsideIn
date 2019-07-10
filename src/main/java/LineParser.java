@@ -12,7 +12,6 @@ public class LineParser {
     }
 
     public List<Frame> parse(String rolls) {
-
         String[] rollsParsed = rolls.split(Pattern.quote(FRAME_BOUNDARY));
 
         for (int i = 0; i < QUANTITY_FRAMES; i++) {
