@@ -1,4 +1,5 @@
 public class SpareFrame extends Frame {
+    private static final int VALUE = 10;
     private Pin pin;
 
     public SpareFrame(Pin pin) {
@@ -7,6 +8,9 @@ public class SpareFrame extends Frame {
 
     @Override
     public int score() {
+        if (this.pin.isNumber())
+            return VALUE + this.pin.number();
+
         return 0;
     }
 }
