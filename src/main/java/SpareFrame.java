@@ -8,15 +8,6 @@ public class SpareFrame extends Frame {
 
     @Override
     public int score() {
-        if (this.pin.isNumber())
-            return VALUE + this.pin.number();
-
-        if (this.pin.isMiss())
-            return VALUE;
-
-        if (this.pin.isStrike())
-            return VALUE * 2;
-
-        return 0;
+        return VALUE + this.pin.value();
     }
 }

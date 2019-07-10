@@ -1,6 +1,5 @@
 public class StrikeFrame extends Frame {
-    private static final int MAX_VALUE = 30;
-    private static final int MIN_VALUE = 10;
+    private static final int VALUE = 10;
     private Pin[] pins;
 
     public StrikeFrame(Pin... pins) {
@@ -9,25 +8,10 @@ public class StrikeFrame extends Frame {
 
     @Override
     public int score() {
-        if (firstPin().isStrike() && secondPin().isStrike())
-            return MAX_VALUE;
-
-        if (firstPin().isNumber() && secondPin().isNumber())
-            return MIN_VALUE + firstPin().number() + secondPin().number();
-
         if (secondPin().isSpare())
-            return MIN_VALUE * 2;
+            return VALUE + secondPin().value();
 
-        if (firstPin().isMiss() && secondPin().isNumber())
-            return MIN_VALUE + secondPin().number();
-
-        if (secondPin().isMiss() && firstPin().isNumber())
-            return MIN_VALUE + firstPin().number();
-
-        if (firstPin().isStrike() && secondPin().isNumber())
-            return MIN_VALUE + MIN_VALUE + secondPin().number();
-
-        return 0;
+        return VALUE + firstPin().value() + secondPin().value();
     }
 
     private Pin secondPin() {

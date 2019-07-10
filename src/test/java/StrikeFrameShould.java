@@ -44,4 +44,11 @@ public class StrikeFrameShould {
 
         assertThat(strikeFrame.score()).isEqualTo(20);
     }
+
+    @Test
+    public void return_10_when_the_next_two_pins_are_miss() {
+        StrikeFrame strikeFrame = new StrikeFrame(new Pin("-"), new Pin("-"));
+
+        assertThat(strikeFrame.score()).isEqualTo(10);
+    }
 }

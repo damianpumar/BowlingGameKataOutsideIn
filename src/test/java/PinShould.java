@@ -49,6 +49,27 @@ public class PinShould {
     public void be_5_when_a_number_is_5() {
         Pin pin = new Pin("5");
 
-        assertThat(pin.number()).isEqualTo(5);
+        assertThat(pin.value()).isEqualTo(5);
+    }
+
+    @Test
+    public void be_10_when_is_a_strike() {
+        Pin pin = new Pin("X");
+
+        assertThat(pin.value()).isEqualTo(10);
+    }
+
+    @Test
+    public void be_10_when_is_a_spare() {
+        Pin pin = new Pin("/");
+
+        assertThat(pin.value()).isEqualTo(10);
+    }
+
+    @Test
+    public void be_0_when_is_miss() {
+        Pin pin = new Pin("-");
+
+        assertThat(pin.value()).isEqualTo(0);
     }
 }

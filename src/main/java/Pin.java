@@ -27,11 +27,13 @@ public class Pin {
         return NumberUtils.isParsable(value);
     }
 
-    public int number() {
-        return Integer.parseInt(this.value);
-    }
+    public int value() {
+        if (isNumber())
+            return Integer.parseInt(this.value);
 
-    public boolean isMiss() {
-        return this.value.equals(MISSED);
+        if (isStrike() || isSpare())
+            return 10;
+
+        return 0;
     }
 }
