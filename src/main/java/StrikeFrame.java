@@ -15,6 +15,9 @@ public class StrikeFrame extends Frame {
         if (this.pins[0].isNumber() && this.pins[1].isNumber())
             return MIN_VALUE + this.pins[0].number() + this.pins[1].number();
 
+        if (this.pins[1].isSpare())
+            return MIN_VALUE * 2;
+
         return 0;
     }
 }
