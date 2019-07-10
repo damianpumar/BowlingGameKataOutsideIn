@@ -25,6 +25,13 @@ public class StrikeFrameShould {
     }
 
     @Test
+    public void return_13_when_the_next_two_pins_are_0_and_3() {
+        StrikeFrame strikeFrame = new StrikeFrame(new Pin("0"), new Pin("3"));
+
+        assertThat(strikeFrame.score()).isEqualTo(13);
+    }
+
+    @Test
     public void return_20_when_the_next_two_pins_are_5_and_spare() {
         StrikeFrame strikeFrame = new StrikeFrame(new Pin("5"), new Pin("/"));
 
