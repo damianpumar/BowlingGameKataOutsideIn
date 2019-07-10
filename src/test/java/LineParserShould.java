@@ -15,16 +15,16 @@ public class LineParserShould {
     private LineParser lineParser;
 
     @Mock
-    Parsers parsers;
+    ParserBuilder parserBuilder;
 
     @Mock
     Parser parser;
 
     @Before
     public void setup() {
-        this.lineParser = new LineParser(this.parsers);
+        this.lineParser = new LineParser(this.parserBuilder);
 
-        when(this.parsers.build(anyString())).thenReturn(this.parser);
+        when(this.parserBuilder.build(anyString())).thenReturn(this.parser);
     }
 
     @Test
@@ -33,7 +33,7 @@ public class LineParserShould {
 
         this.lineParser.parse(rolls);
 
-        verify(this.parsers, times(1)).build(rolls);
+        verify(this.parserBuilder, times(1)).build(rolls);
     }
 
     @Test

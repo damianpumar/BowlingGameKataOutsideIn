@@ -1,8 +1,18 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Parser {
-    public Parser(List<FrameParser> parsers, String[] rollsParsed) {
+    private final String[] rollsParsed;
+    private final List<FrameParser> frameParsers;
 
+    public Parser(String[] rollsParsed) {
+        this.rollsParsed = rollsParsed;
+
+        this.frameParsers = new ArrayList() {
+            {
+                add(new StrikeParser());
+            }
+        };
     }
 
     public Frame evaluate(int positionToAnalyze) {
