@@ -11,6 +11,6 @@ public class NumberParser extends FrameParser {
 
     @Override
     protected Frame createFrame(String[] rollsParsed, String currentFrame, int positionToAnalyze) {
-        return new NumberFrame();
+        return new NumberFrame(this.createPin(currentFrame)[0], this.createPin(currentFrame)[1]);
     }
 }
