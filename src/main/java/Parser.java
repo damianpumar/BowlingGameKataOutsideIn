@@ -1,6 +1,8 @@
+import java.util.List;
+
 public class Parser {
-    public Parser(String[] rollsParsed) {
-        
+    public Parser(List<FrameParser> parsers, String[] rollsParsed) {
+
     }
 
     public Frame evaluate(int positionToAnalyze) {
