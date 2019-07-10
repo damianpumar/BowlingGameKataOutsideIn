@@ -8,7 +8,6 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.fail;
-import static org.mockito.ArgumentMatchers.argThat;
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -18,9 +17,23 @@ public class LineParserShould {
     @Mock
     Parsers parsers;
 
+    @Mock
+    Parser parser;
+
     @Before
     public void setup() {
         this.lineParser = new LineParser(this.parsers);
+
+        when(this.parsers.build(anyString())).thenReturn(this.parser);
+    }
+
+    @Test
+    public void create_a_parser_with_rolls() {
+        String rolls = "X|X|X|X|X|X|X|X|X|X||XX";
+
+        this.lineParser.parse(rolls);
+
+        verify(this.parsers, times(1)).build(rolls);
     }
 
     @Test
@@ -29,7 +42,7 @@ public class LineParserShould {
 
         this.lineParser.parse(rolls);
 
-        verify(this.parsers, times(10)).evaluate(argThat(r -> r.equals("X")));
+        verify(this.parser, times(10)).evaluate(anyInt());
     }
 
     @Test
@@ -38,7 +51,7 @@ public class LineParserShould {
 
         String rolls = "X|X|X|X|X|X|X|X|X|X||XX";
 
-        when(this.parsers.evaluate(argThat(r -> r.equals("X")))).thenReturn(frameExpected);
+        when(this.parser.evaluate(anyInt())).thenReturn(frameExpected);
 
         List<Frame> frames = this.lineParser.parse(rolls);
 

@@ -1,9 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
 
 public class LineParser {
-    private static final String FRAME_BOUNDARY = "|";
     private static final int QUANTITY_FRAMES = 10;
     private final Parsers parsers;
 
@@ -14,10 +12,10 @@ public class LineParser {
     public List<Frame> parse(String rolls) {
         List<Frame> frames = new ArrayList();
 
-        String[] rollsParsed = rolls.split(Pattern.quote(FRAME_BOUNDARY));
+        Parser parser = this.parsers.build(rolls);
 
         for (int i = 0; i < QUANTITY_FRAMES; i++) {
-            frames.add(this.parsers.evaluate(rollsParsed[i]));
+            frames.add(parser.evaluate(i));
         }
 
         return frames;
