@@ -17,4 +17,11 @@ public class BowlingFeature {
 
         assertThat(this.bowling.score(rolls)).isEqualTo(300);
     }
+
+    @Test
+    public void scores_is_90_when_all_pin_is_strike() {
+        String rolls = "9-|9-|9-|9-|9-|9-|9-|9-|9-|9-||";
+
+        assertThat(this.bowling.score(rolls)).isEqualTo(90);
+    }
 }
