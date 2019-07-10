@@ -9,21 +9,29 @@ public class StrikeFrame extends Frame {
 
     @Override
     public int score() {
-        if (this.pins[0].isStrike() && this.pins[1].isStrike())
+        if (firstPin().isStrike() && secondPin().isStrike())
             return MAX_VALUE;
 
-        if (this.pins[0].isNumber() && this.pins[1].isNumber())
-            return MIN_VALUE + this.pins[0].number() + this.pins[1].number();
+        if (firstPin().isNumber() && secondPin().isNumber())
+            return MIN_VALUE + firstPin().number() + secondPin().number();
 
-        if (this.pins[1].isSpare())
+        if (secondPin().isSpare())
             return MIN_VALUE * 2;
 
-        if (this.pins[0].isMiss() && this.pins[1].isNumber())
-            return MIN_VALUE + this.pins[1].number();
+        if (firstPin().isMiss() && secondPin().isNumber())
+            return MIN_VALUE + secondPin().number();
 
-        if (this.pins[1].isMiss() && this.pins[0].isNumber())
-            return MIN_VALUE + this.pins[0].number();
+        if (secondPin().isMiss() && firstPin().isNumber())
+            return MIN_VALUE + firstPin().number();
 
         return 0;
+    }
+
+    private Pin secondPin() {
+        return this.pins[1];
+    }
+
+    private Pin firstPin() {
+        return this.pins[0];
     }
 }
