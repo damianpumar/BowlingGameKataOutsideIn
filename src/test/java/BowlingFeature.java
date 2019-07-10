@@ -19,9 +19,16 @@ public class BowlingFeature {
     }
 
     @Test
-    public void scores_is_90_when_all_pin_is_strike() {
+    public void scores_is_90_when_all_pin_is_missed() {
         String rolls = "9-|9-|9-|9-|9-|9-|9-|9-|9-|9-||";
 
         assertThat(this.bowling.score(rolls)).isEqualTo(90);
+    }
+
+    @Test
+    public void scores_is_150_when_all_pin_is_spare() {
+        String rolls = "5/|5/|5/|5/|5/|5/|5/|5/|5/|5/||5";
+
+        assertThat(this.bowling.score(rolls)).isEqualTo(150);
     }
 }
