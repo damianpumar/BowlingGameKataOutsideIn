@@ -10,6 +10,6 @@ public class SpareParser extends FrameParser {
 
     @Override
     protected Frame createFrame(String[] rollsParsed, String currentFrame, int positionToAnalyze) {
-        return new SpareFrame();
+        return new SpareFrame(null);
     }
 }
