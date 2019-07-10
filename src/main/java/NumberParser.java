@@ -6,11 +6,11 @@ public class NumberParser extends FrameParser {
 
     @Override
     protected boolean isMatch(String currentFrame) {
-        return false;
+        return Pin.isNumber(currentFrame);
     }
 
     @Override
     protected Frame createFrame(String[] rollsParsed, String currentFrame, int positionToAnalyze) {
-        return null;
+        return new NumberFrame();
     }
 }

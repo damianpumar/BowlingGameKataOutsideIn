@@ -20,7 +20,11 @@ public class Pin {
     }
 
     public boolean isNumber() {
-        return NumberUtils.isParsable(this.value);
+        return isNumber(this.value);
+    }
+
+    public static boolean isNumber(String value) {
+        return NumberUtils.isParsable(value);
     }
 
     public int number() {
