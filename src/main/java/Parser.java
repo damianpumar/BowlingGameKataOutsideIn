@@ -21,6 +21,9 @@ public class Parser {
 
         for (FrameParser parser : this.frameParsers) {
             frame = parser.evaluate(positionToAnalyze);
+
+            if (frame != null)
+                break;
         }
 
         return frame;
