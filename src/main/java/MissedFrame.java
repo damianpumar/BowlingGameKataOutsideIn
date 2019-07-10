@@ -7,6 +7,9 @@ public class MissedFrame extends Frame {
 
     @Override
     public int score() {
+        if (this.pins[0].isMiss() && this.pins[1].isMiss())
+            return 0;
+
         if (this.pins[1].isMiss())
             return this.pins[0].number();
 
