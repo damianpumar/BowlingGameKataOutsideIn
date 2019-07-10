@@ -10,6 +10,8 @@ public class StrikeParser extends FrameParser {
 
     @Override
     protected Frame createFrame(String[] rollsParsed, String currentFrame, int positionToAnalyze) {
-        return new StrikeFrame();
+        return new StrikeFrame(
+                new Pin(rollsParsed[positionToAnalyze + 1]),
+                new Pin(rollsParsed[positionToAnalyze + 2]));
     }
 }
