@@ -1,9 +1,13 @@
 public class Bowling {
+    private LineParser lineParser;
+
     public Bowling(LineParser lineParser) {
-        throw new UnsupportedOperationException();
+        this.lineParser = lineParser;
     }
 
-    public void score(String rolls) {
-        throw new UnsupportedOperationException();
+    public int score(String rolls) {
+        this.lineParser.parse(rolls);
+
+        return 0;
     }
 }
