@@ -11,6 +11,9 @@ public class SpareFrame extends Frame {
         if (this.pin.isNumber())
             return VALUE + this.pin.number();
 
+        if (this.pin.isMiss())
+            return VALUE;
+
         return 0;
     }
 }
