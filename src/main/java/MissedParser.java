@@ -6,11 +6,11 @@ public class MissedParser extends FrameParser {
 
     @Override
     protected boolean isMatch(String currentFrame) {
-        return false;
+        return currentFrame.contains(Pin.MISSED);
     }
 
     @Override
     protected Frame createFrame(String[] rollsParsed, String currentFrame, int positionToAnalyze) {
-        return null;
+        return new MissedFrame();
     }
 }

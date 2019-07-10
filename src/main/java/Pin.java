@@ -3,7 +3,7 @@ import org.apache.commons.lang3.math.NumberUtils;
 public class Pin {
     public static final String STRIKE = "X";
     public static final String SPARE = "/";
-    private static final String MISSED = "-";
+    public static final String MISSED = "-";
 
     private String value;
 
