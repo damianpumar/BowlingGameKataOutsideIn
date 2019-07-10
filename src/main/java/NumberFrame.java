@@ -7,12 +7,6 @@ public class NumberFrame extends Frame {
 
     @Override
     public int score() {
-        int score = 0;
-
-        for (Pin pin : this.pins) {
-            score += pin.number();
-        }
-
-        return score;
+        return this.pins[0].number() + this.pins[1].number();
     }
 }
