@@ -13,6 +13,7 @@ public class Parser {
                 add(new StrikeParser(rollsParsed));
                 add(new SpareParser(rollsParsed));
                 add(new MissedParser(rollsParsed));
+                add(new NumberParser(rollsParsed));
             }
         };
     }
