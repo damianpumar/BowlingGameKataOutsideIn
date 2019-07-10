@@ -11,6 +11,7 @@ public class Parser {
         this.frameParsers = new ArrayList() {
             {
                 add(new StrikeParser(rollsParsed));
+                add(new SpareParser(rollsParsed));
             }
         };
     }
