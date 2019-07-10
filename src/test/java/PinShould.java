@@ -9,4 +9,11 @@ public class PinShould {
 
         assertThat(pin.isStrike()).isTrue();
     }
+
+    @Test
+    public void false_when_is_not_Strike() {
+        Pin pin = new Pin("5/");
+
+        assertThat(pin.isStrike()).isFalse();
+    }
 }
