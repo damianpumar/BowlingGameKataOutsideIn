@@ -12,12 +12,14 @@ public class LineParser {
     }
 
     public List<Frame> parse(String rolls) {
+        List<Frame> frames = new ArrayList();
+
         String[] rollsParsed = rolls.split(Pattern.quote(FRAME_BOUNDARY));
 
         for (int i = 0; i < QUANTITY_FRAMES; i++) {
-            this.parsers.evaluate(rollsParsed[i]);
+            frames.add(this.parsers.evaluate(rollsParsed[i]));
         }
 
-        return new ArrayList<Frame>();
+        return frames;
     }
 }
