@@ -46,4 +46,15 @@ public class ParserShould {
 
         assertThat(frame).isInstanceOf(NumberFrame.class);
     }
+
+    @Test
+    public void get_null_when_rolls_not_supported() {
+        String[] rolls = new String[]{"??", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X",};
+
+        Parser parser = new Parser(rolls);
+
+        Frame frame = parser.evaluate(0);
+
+        assertThat(frame).isNull();
+    }
 }
